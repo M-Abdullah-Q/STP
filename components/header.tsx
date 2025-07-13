@@ -96,7 +96,9 @@ export default function Header() {
               variant="ghost"
               size="icon"
               onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-              className="rounded-full hover:bg-sage-100 dark:hover:bg-sage-900"
+              className={`rounded-full hover:bg-sage-100 dark:hover:bg-sage-900 ${
+                isScrolled ? "" : "hover:bg-sage-900"
+              }`}
             >
               {theme === "light" ? (
                 <Moon

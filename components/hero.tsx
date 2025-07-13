@@ -75,7 +75,7 @@ export default function Hero() {
       </div>
 
       {/* Gradient transition to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/40 to-transparent z-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background via-background/50 to-transparent z-20 pointer-events-none" />
 
       <audio
         ref={audioRef}
@@ -158,7 +158,7 @@ export default function Hero() {
 
       <button
         onClick={toggleMute}
-        className="absolute bottom-4 z-40 sm:bottom-6 right-4 sm:right-6 z-10 bg-background text-foreground p-2 rounded-full hover:bg-black/80 transition"
+        className="absolute bottom-4 z-40 sm:bottom-6 right-4 sm:right-6 z-10 bg-background text-foreground p-2 rounded-full transition"
         aria-label="Toggle Mute"
       >
         {isMuted ? (
