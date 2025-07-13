@@ -114,9 +114,11 @@ export default function Header() {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? (
-                <X className="w-5 h-5" />
+                <X className={`w-5 h-5 ${!isScrolled ? "text-white" : ""}`} />
               ) : (
-                <Menu className="w-5 h-5" />
+                <Menu
+                  className={`w-5 h-5 ${!isScrolled ? "text-white" : ""}`}
+                />
               )}
             </Button>
           </div>
@@ -136,11 +138,7 @@ export default function Header() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => scrollToSection(item.href)}
-                  className={`text-left transition-colors duration-200 font-medium py-2 ${
-                    isScrolled
-                      ? "text-foreground hover:text-sage-500"
-                      : "text-white hover:text-sage-300"
-                  }`}
+                  className={`text-left text-foreground transition-colors duration-200 font-medium py-2`}
                   style={{
                     textShadow:
                       "0 1px 3px rgba(0,0,0,0.7), 0 0 2px rgba(255,255,255,0.2)",

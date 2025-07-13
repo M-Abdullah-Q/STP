@@ -125,7 +125,7 @@ export default function About() {
       >
         <div className="w-full h-px bg-gradient-to-r from-transparent via-sage-300 to-transparent mb-12"></div>
 
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="text-center max-w-4xl mx-auto px-2">
           <h3 className="text-2xl sm:text-3xl font-light text-foreground mb-8">
             Words of <span className="text-sage-500 font-medium">Wisdom</span>
           </h3>

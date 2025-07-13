@@ -51,7 +51,11 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-screen w-full overflow-hidden flex items-center justify-center"
+      className="relative w-full overflow-hidden flex items-center justify-center"
+      style={{
+        height: "100vh",
+        minHeight: "100svh", // Use svh for better mobile support
+      }}
     >
       <div className="absolute inset-0 z-0">
         <BackgroundVideo
@@ -60,10 +64,18 @@ export default function Hero() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          // disableHls={true}
+          preload="auto"
+          className="w-full h-full object-cover scale-[5] md:scale-100"
+          style={{
+            transformOrigin: "center center",
+          }}
         />
         <div className="absolute inset-0 bg-black/40" />
       </div>
+
+      {/* Gradient transition to next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/40 to-transparent z-20 pointer-events-none" />
 
       <audio
         ref={audioRef}
@@ -78,7 +90,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-light mb-6 leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-4 sm:mb-6 leading-tight"
         >
           Find Your Path to{" "}
           <span className="text-sage-400 font-medium drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
@@ -90,7 +102,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg sm:text-xl lg:text-2xl mb-8 text-white/95 font-light leading-relaxed"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 text-white/95 font-light leading-relaxed px-2 sm:px-0"
         >
           Professional therapy services in a safe, supportive environment.
           <br className="hidden sm:block" />
@@ -101,12 +113,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
         >
           <Button
             size="lg"
             onClick={scrollToContact}
-            className="bg-sage-500 hover:bg-sage-600 text-white px-8 py-4 text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+            className="bg-sage-500 hover:bg-sage-600 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto"
           >
             Start Your Journey
           </Button>
@@ -117,7 +129,7 @@ export default function Hero() {
                 .querySelector("#about")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="border-white bg-black text-white hover:bg-white/10 px-8 py-4 text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105"
+            className="border-white bg-black text-white hover:bg-white/10 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium rounded-full transition-all duration-300 transform hover:scale-105 w-full sm:w-auto"
           >
             Learn More
           </Button>
@@ -128,7 +140,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
@@ -140,19 +152,19 @@ export default function Hero() {
               ?.scrollIntoView({ behavior: "smooth" })
           }
         >
-          <ArrowDown className="w-6 h-6" />
+          <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6" />
         </motion.div>
       </motion.div>
 
       <button
         onClick={toggleMute}
-        className="absolute bottom-6 right-6 z-10 bg-black/60 text-white p-2 rounded-full hover:bg-black/80 transition"
+        className="absolute bottom-4 z-40 sm:bottom-6 right-4 sm:right-6 z-10 bg-background text-foreground p-2 rounded-full hover:bg-black/80 transition"
         aria-label="Toggle Mute"
       >
         {isMuted ? (
-          <VolumeX className="w-6 h-6" />
+          <VolumeX className="w-5 h-5 sm:w-6 sm:h-6" />
         ) : (
-          <Volume2 className="w-6 h-6" />
+          <Volume2 className="w-5 h-5 sm:w-6 sm:h-6" />
         )}
       </button>
     </section>
