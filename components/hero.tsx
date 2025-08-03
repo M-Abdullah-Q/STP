@@ -6,6 +6,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Volume2, VolumeX } from "lucide-react";
+import BlurVignette from "./ui/blur-vignette";
 
 export default function Hero() {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -57,20 +58,29 @@ export default function Hero() {
         minHeight: "100svh", // Use svh for better mobile support
       }}
     >
-      <div className="absolute inset-0 z-0">
-        <BackgroundVideo
-          src={bckgVid}
-          autoPlay
-          loop
-          muted
-          playsInline
-          // disableHls={true}
-          preload="auto"
-          className="w-full h-full object-cover scale-[5] md:scale-100"
-          style={{
-            transformOrigin: "center center",
-          }}
-        />
+      <div className="absolute z-0">
+        <BlurVignette
+          radius="0px"
+          inset="10px"
+          transitionLength="200px"
+          blur="15px"
+          className=" rounded-[2.5rem]"
+          switchView={false}
+        >
+          <BackgroundVideo
+            src={bckgVid}
+            autoPlay
+            loop
+            muted
+            playsInline
+            // disableHls={true}
+            preload="auto"
+            className="w-full h-full object-cover scale-[5] md:scale-100"
+            style={{
+              transformOrigin: "center center",
+            }}
+          />
+        </BlurVignette>
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
@@ -158,7 +168,7 @@ export default function Hero() {
 
       <button
         onClick={toggleMute}
-        className="absolute bottom-4 z-40 sm:bottom-6 right-4 sm:right-6 z-10 bg-background text-foreground p-2 rounded-full transition"
+        className="absolute bottom-4 z-40 sm:bottom-6 right-4 sm:right-6 bg-background text-foreground p-2 rounded-full transition"
         aria-label="Toggle Mute"
       >
         {isMuted ? (
