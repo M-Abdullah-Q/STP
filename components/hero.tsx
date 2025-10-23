@@ -1,7 +1,5 @@
 "use client";
 
-import BackgroundVideo from "next-video/background-video";
-import bckgVid from "/videos/13975885_4096_2160_25fps.mp4.json";
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -54,27 +52,24 @@ export default function Hero() {
       className="relative w-full overflow-hidden flex items-center justify-center"
       style={{
         height: "100vh",
-        minHeight: "100svh", // Use svh for better mobile support
+        minHeight: "100svh",
       }}
     >
       <div className="absolute z-0">
-        <BackgroundVideo
-          src={bckgVid}
+        <video
           autoPlay
           loop
           muted
           playsInline
-          // disableHls={true}
           preload="auto"
           className="w-full h-full object-cover scale-[5] md:scale-100"
-          style={{
-            transformOrigin: "center center",
-          }}
-        />
+          style={{ transformOrigin: "center center" }}
+        >
+          <source src="/videos/13975885_4096_2160_25fps.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Gradient transition to next section */}
       <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background via-background/50 to-transparent z-20 pointer-events-none" />
 
       <audio
