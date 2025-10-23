@@ -79,10 +79,4 @@ This is a personal passion project, but open to collaboration! Feel free to:
 
 ---
 
-## 📄 License
-
-[MIT](LICENSE) © 2025 Serenity Therapy Team
-
----
-
 > _“Healing takes time, and asking for help is a courageous first step.”_
