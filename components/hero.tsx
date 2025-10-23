@@ -65,7 +65,7 @@ export default function Hero() {
           className="w-full h-full object-cover scale-[5] md:scale-100"
           style={{ transformOrigin: "center center" }}
         >
-          <source src="/videos/13975885_4096_2160_25fps.mp4" type="video/mp4" />
+          <source src="/videos/output_compressed.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/40" />
       </div>
